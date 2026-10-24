@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nur Dewi Putri | Portofolio</title>
+  <meta name="description" content="Portofolio profesional Nur Dewi Putri">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+/* =====================================================
+   PORTOFOLIO NUR DEWI PUTRI
+   Tema: lembut & hangat (blush pink, krem, peach)
+   ===================================================== */
+
+:root {
+  --cream: #fff8f3;
+  --blush: #fde8e4;
+  --peach: #f9d5c7;
+  --rose: #e8a5a0;
+  --rose-dark: #c97b84;
+  --mauve: #8a5a64;
+  --text: #5a4048;
+  --text-soft: #8d7078;
+  --sage: #b9cfbf;
+  --white: #ffffff;
+  --shadow: 0 12px 35px rgba(201, 123, 132, 0.18);
+  --radius: 24px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+}
+
+h1, h2, h3 { font-family: "Playfair Display", serif; font-weight: 500; color: var(--mauve); }
+em { font-style: italic; color: var(--rose-dark); }
+a { text-decoration: none; color: inherit; }
+
+/* ---------- NAVIGASI ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background: rgba(255, 248, 243, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--blush);
+}
+.logo { font-family: "Playfair Display", serif; font-size: 1.6rem; color: var(--mauve); }
+.logo span { color: var(--rose); }
+.nav nav { display: flex; align-items: center; gap: 26px; }
+.nav nav a { font-weight: 600; font-size: 0.95rem; color: var(--text-soft); transition: color 0.3s; }
+.nav nav a:hover { color: var(--rose-dark); }
+.btn-nav {
+  background: var(--rose);
+  color: var(--white) !important;
+  padding: 9px 20px;
+  border-radius: 50px;
+}
+.btn-nav:hover { background: var(--rose-dark); }
+
+/* ---------- HERO ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 6% 90px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--rose-dark);
+  margin-bottom: 10px;
+}
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.15; margin-bottom: 8px; }
+.role { font-size: 1.15rem; font-weight: 600; color: var(--rose-dark); margin-bottom: 18px; }
+.lead { color: var(--text-soft); max-width: 520px; }
+.hero-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background: var(--rose); color: var(--white); box-shadow: var(--shadow); }
+.btn-primary:hover { background: var(--rose-dark); }
+.btn-ghost { border: 2px solid var(--rose); color: var(--rose-dark); }
+.btn-ghost:hover { background: var(--white); }
+
+/* ---------- FOTO PROFIL ---------- */
+.hero-photo { position: relative; display: flex; justify-content: center; }
+.blob { position: absolute; border-radius: 50%; filter: blur(2px); z-index: 0; }
+.blob-1 { width: 300px; height: 300px; background: var(--peach); top: -20px; right: 10%; opacity: 0.8; }
+.blob-2 { width: 180px; height: 180px; background: var(--sage); bottom: -10px; left: 8%; opacity: 0.7; }
+
+.photo-frame {
+  position: relative;
+  z-index: 1;
+  width: 330px;
+  height: 400px;
+  border-radius: 200px 200px 28px 28px;
+  border: 8px solid var(--white);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  background-color: var(--peach);
+}
+.photo-frame img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+/* Tampil hanya bila foto belum ada */
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  color: var(--white);
+  background: linear-gradient(160deg, var(--rose), var(--peach));
+}
+
+/* ---------- SECTION UMUM ---------- */
+.section { padding: 90px 6%; }
+.section-soft { background: var(--blush); }
+.section-head { text-align: center; margin-bottom: 50px; }
+.section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+
+/* ---------- TENTANG ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.about-text p { margin-bottom: 16px; color: var(--text-soft); }
+.stats { display: grid; gap: 16px; }
+.stat {
+  background: var(--white);
+  padding: 20px 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.stat strong { font-family: "Playfair Display", serif; font-size: 2.2rem; color: var(--rose-dark); }
+.stat span { color: var(--text-soft); font-weight: 600; }
+
+/* ---------- KEAHLIAN ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px 50px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+.skill-top { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 8px; }
+.bar { height: 10px; background: var(--white); border-radius: 20px; overflow: hidden; }
+.fill { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--peach), var(--rose-dark)); }
+
+.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 800px; margin: 0 auto; }
+.tags span {
+  background: var(--white);
+  color: var(--mauve);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(201, 123, 132, 0.12);
+}
+
+/* ---------- TIMELINE ---------- */
+.timeline { max-width: 760px; margin: 0 auto; border-left: 3px solid var(--peach); padding-left: 34px; }
+.t-item { position: relative; margin-bottom: 38px; }
+.t-item::before {
+  content: "";
+  position: absolute;
+  left: -46px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--rose);
+  border: 4px solid var(--cream);
+}
+.t-date {
+  display: inline-block;
+  background: var(--blush);
+  color: var(--rose-dark);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 3px 14px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+}
+.t-item h3 { font-size: 1.4rem; }
+.t-place { font-weight: 700; color: var(--rose-dark); margin-bottom: 4px; }
+.t-item p:last-child { color: var(--text-soft); }
+
+/* ---------- KARTU PROYEK ---------- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s;
+}
+.card:hover { transform: translateY(-8px); }
+.card-img {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+/* Ganti dengan gambar proyek: background-image: url("proyek1.jpg"); background-size: cover; */
+.c1 { background: linear-gradient(135deg, var(--rose), var(--peach)); }
+.c2 { background: linear-gradient(135deg, var(--sage), var(--peach)); }
+.c3 { background: linear-gradient(135deg, var(--peach), var(--rose-dark)); }
+.card-body { padding: 24px; }
+.card-body h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.card-body p { color: var(--text-soft); font-size: 0.95rem; margin-bottom: 14px; }
+.chip {
+  display: inline-block;
+  background: var(--blush);
+  color: var(--rose-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 14px;
+  border-radius: 50px;
+}
+
+/* ---------- KONTAK ---------- */
+.contact-box {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, var(--blush), var(--peach));
+  padding: 60px 30px;
+  border-radius: 36px;
+  box-shadow: var(--shadow);
+}
+.contact-box h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px; }
+.contact-box .lead { margin: 0 auto 30px; }
+.contact-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.contact-list a {
+  background: var(--white);
+  padding: 11px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  color: var(--mauve);
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+.contact-list a:hover { transform: translateY(-3px); background: var(--rose); color: var(--white); }
+
+/* ---------- FOOTER ---------- */
+.footer { text-align: center; padding: 28px 6%; color: var(--text-soft); font-size: 0.9rem; }
+
+/* ---------- RESPONSIF ---------- */
+@media (max-width: 860px) {
+  .nav nav a:not(.btn-nav) { display: none; }
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 50px; }
+  .hero-text .lead { margin: 0 auto; }
+  .hero-actions { justify-content: center; }
+  .hero-photo { order: -1; }
+  .photo-frame { width: 260px; height: 320px; }
+  .about-grid, .skills-grid, .cards { grid-template-columns: 1fr; }
+  .section { padding: 70px 6%; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVIGASI ============ -->
+  <header class="nav">
+    <a href="#beranda" class="logo">Dewi<span>.</span></a>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#keahlian">Keahlian</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak" class="btn-nav">Hubungi Saya</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ BERANDA ============ -->
+    <section id="beranda" class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Halo, saya</p>
+        <h1>Nur Dewi <em>Putri</em></h1>
+        <p class="role">Cyber Security</p>
+        <p class="lead">
+          Saya senang bekerja dengan teliti, hangat, dan penuh perhatian pada detail.
+          Mari berkolaborasi untuk menghasilkan karya yang bermakna.
+        </p>
+        <div class="hero-actions">
+          <a href="#proyek" class="btn btn-primary">Lihat Karya</a>
+          <a href="#kontak" class="btn btn-ghost">Hubungi Saya</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <!--
+          CARA MENGGANTI FOTO:
+          Simpan foto Anda di folder yang sama dengan file ini dan beri nama: foto-profil.jpeg
+          (atau ubah nama file pada src di tag img di bawah)
+        -->
+        <div class="photo-frame">
+          <span class="photo-placeholder">NDP</span>
+          <!-- GANTI FOTO DI SINI: ubah nama file pada src sesuai foto Anda -->
+          <img src="foto-profil.jpeg" alt="Foto Nur Dewi Putri">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TENTANG ============ -->
+    <section id="tentang" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Tentang Saya</p>
+        <h2>Sedikit cerita <em>tentang saya</em></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Saya Nur Dewi Putri, seorang profesional yang percaya bahwa hasil kerja terbaik
+            lahir dari ketelitian, empati, dan semangat belajar yang tidak pernah berhenti.
+            <!-- Ganti paragraf ini dengan cerita singkat tentang diri Anda -->
+          </p>
+          <p>
+            Saya terbiasa bekerja dalam tim maupun mandiri, dan selalu berusaha menghadirkan
+            suasana kerja yang nyaman dan saling mendukung.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>3+</strong><span>Tahun Pengalaman</span></div>
+          <div class="stat"><strong>20+</strong><span>Proyek Selesai</span></div>
+          <div class="stat"><strong>10+</strong><span>Klien Puas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KEAHLIAN ============ -->
+    <section id="keahlian" class="section section-soft">
+      <div class="section-head">
+        <p class="eyebrow">Keahlian</p>
+        <h2>Hal yang saya <em>kuasai</em></h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill">
+          <div class="skill-top"><span>Komunikasi</span><span>90%</span></div>
+          <div class="bar"><div class="fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-top"><span>Manajemen Waktu</span><span>85%</span></div>
+          <div class="bar"><div class="fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-top"><span>Microsoft Office</span><span>88%</span></div>
+          <div class="bar"><div class="fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-top"><span>Kerja Sama Tim</span><span>92%</span></div>
+          <div class="bar"><div class="fill" style="width:92%"></div></div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span>Kreatif</span>
+        <span>Teliti</span>
+        <span>Adaptif</span>
+        <span>Problem Solving</span>
+        <span>Kepemimpinan</span>
+        <span>Berorientasi Detail</span>
+      </div>
+    </section>
+
+    <!-- ============ PENGALAMAN ============ -->
+    <section id="pengalaman" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Perjalanan</p>
+        <h2>Pengalaman &amp; <em>Pendidikan</em></h2>
+      </div>
+
+      <div class="timeline">
+        <article class="t-item">
+          <span class="t-date">2024 - Sekarang</span>
+          <h3>Senior Cyber Security</h3>
+          <p class="t-place">Nama Perusahaan</p>
+          <p>Saya bertanggung jawab atas divisi pendeteksi ancaman hacking, dan saya telah berhasil menangani beberapa kasus hacking.</p>
+        </article>
+
+        <article class="t-item">
+          <span class="t-date">2022 - 2024</span>
+          <h3>Junior Cyber Security</h3>
+          <p class="t-place">Nama Perusahaan</p>
+          <p>Saya bekerja sebagai Junior Cyber Security pada Perusahaan A.</p>
+        </article>
+
+        <article class="t-item">
+          <span class="t-date">2018 - 2022</span>
+          <h3>S1 Informatika</h3>
+          <p class="t-place">Universitas Cokroaminoto Palopo</p>
+          <p>Tuliskan prestasi akademik, organisasi, atau penghargaan yang pernah diraih.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PROYEK ============ -->
+    <section id="proyek" class="section section-soft">
+      <div class="section-head">
+        <p class="eyebrow">Portofolio</p>
+        <h2>Karya <em>pilihan</em></h2>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-img c1"><span>Proyek 1</span></div>
+          <div class="card-body">
+            <h3>Judul Proyek Pertama</h3>
+            <p>Deskripsi singkat tentang proyek, peran Anda, dan hasil yang dicapai.</p>
+            <span class="chip">Kategori</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img c2"><span>Proyek 2</span></div>
+          <div class="card-body">
+            <h3>Judul Proyek Kedua</h3>
+            <p>Deskripsi singkat tentang proyek, peran Anda, dan hasil yang dicapai.</p>
+            <span class="chip">Kategori</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img c3"><span>Proyek 3</span></div>
+          <div class="card-body">
+            <h3>Judul Proyek Ketiga</h3>
+            <p>Deskripsi singkat tentang proyek, peran Anda, dan hasil yang dicapai.</p>
+            <span class="chip">Kategori</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ KONTAK ============ -->
+    <section id="kontak" class="section contact">
+      <div class="contact-box">
+        <p class="eyebrow">Kontak</p>
+        <h2>Mari <em>bekerja sama</em></h2>
+        <p class="lead">Tertarik berkolaborasi atau ingin berdiskusi? Saya senang mendengar kabar dari Anda.</p>
+
+        <div class="contact-list">
+          <a href="mailto:NurDewiPutri@gmail.com">NurDewiPutri@gmail.com</a>
+          <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+          <a href="https://linkedin.com/in/NurDewi">linkedin.com/in/NurDewi</a>
+          <a href="https://instagram.com/username">@username</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Nur Dewi Putri. Dibuat dengan penuh kehangatan.</p>
+  </footer>
+
+</body>
+</html>
